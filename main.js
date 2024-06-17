@@ -24,5 +24,31 @@ class Timer extends React.Component {
 
 const timer = React.createElement(Timer);
 
+class ButtonClicked extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { timesClicked: 0 };
+  }
+
+  render() {
+    const button = React.createElement(
+      "button",
+      {
+        onClick: () => {
+          this.setState(({ timesClicked }) => ({
+            timesClicked: timesClicked + 1,
+          }));
+        },
+      },
+      `Times Clicked: ${this.state.timesClicked}`
+    );
+
+    const finished = React.createElement("p", null, "finished");
+    return this.state.timesClicked > this.props.maxClicks ? finished : button;
+  }
+}
+
+const button = React.createElement(ButtonClicked, { maxClicks: 5 });
+
 const container = document.getElementById("container");
-ReactDOM.render(timer, container);
+ReactDOM.render(button, container);
