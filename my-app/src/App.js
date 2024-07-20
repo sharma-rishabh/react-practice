@@ -1,12 +1,12 @@
 import "./App.css";
-import MirroredText from "./MirroredText";
+
+import FilteredPokemonGallery from "./FilteredPokemonGallery";
+import * as data from "./pokemons.json";
 
 function App() {
-  return (
-    <div>
-      <MirroredText />
-    </div>
-  );
+  const pokemons = data.default;
+
+  return <FilteredPokemonGallery pokemons={pokemons} />;
 }
 
 export default App;
