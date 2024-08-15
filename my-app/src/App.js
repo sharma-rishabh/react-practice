@@ -1,9 +1,16 @@
 import "./App.css";
 
-import TicTacToe from "./ttt/TicTacToe";
+import {TodoHeading, TodoItem, withHover} from "./Todo.jsx";
+
+
 
 function App() {
-  return <TicTacToe />;
+  const HoverableHeading = withHover(TodoHeading);
+  const HoverableItem = withHover(TodoItem);
+  return <div>
+    <HoverableHeading heading="HEADING" />
+    <HoverableItem item="Item" />
+  </div>;
 }
 
 export default App;
