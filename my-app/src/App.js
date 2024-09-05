@@ -1,15 +1,15 @@
 import "./App.css";
+import Pokemon from './Pokemon.js';
+import PokemonGallery from './PokemonGallery.js';
 
 import {TodoHeading, TodoItem, withHover} from "./Todo.jsx";
 
 
 
+const pokemons = new Array(10).fill(null).map((_, index) => index + 100 );
 function App() {
-  const HoverableHeading = withHover(TodoHeading);
-  const HoverableItem = withHover(TodoItem);
   return <div>
-    <HoverableHeading heading="HEADING" />
-    <HoverableItem item="Item" />
+    <PokemonGallery pokemons={pokemons} />
   </div>;
 }
 
